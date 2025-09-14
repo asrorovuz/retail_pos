@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+.ant-splitter-horizontal >.ant-splitter-bar .ant-splitter-bar-dragger{
+    width: 2px;
+}
+
+.ant-splitter-horizontal >.ant-splitter-bar .ant-splitter-bar-dragger::before{
+    width: 1px;
+    background-color: #3c5f80;
+}
