@@ -1,20 +1,21 @@
-import { Navigate, Outlet } from "react-router"
-import { useAuthContext } from "../providers/AuthProvider"
+import { Navigate, Outlet } from "react-router";
+import { useAuthContext } from "../providers/AuthProvider";
+import Loading from "@/shared/ui/Loading";
 
 export const PrivateRoute = () => {
-  const { isAuthenticated, loading } = useAuthContext()
+  const { isAuthenticated, loading } = useAuthContext();
 
-  if (loading) return <div>Loading...</div>
-  if (!isAuthenticated) return <Navigate to="/login" replace />
+  if (loading) return <Loading />;
+  if (!isAuthenticated) return <Navigate to="/login" replace />;
 
-  return <Outlet />
-}
+  return <Outlet />;
+};
 
 export const PublicRoute = () => {
-  const { isAuthenticated, loading } = useAuthContext()
+  const { isAuthenticated, loading } = useAuthContext();
 
-  if (loading) return <div>Loading...</div>
-  if (isAuthenticated) return <Navigate to="/sales" replace />
+  if (loading) return <Loading />;
+  if (isAuthenticated) return <Navigate to="/sales" replace />;
 
-  return <Outlet />
-}
+  return <Outlet />;
+};

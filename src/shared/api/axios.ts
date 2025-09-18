@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { TOKEN } from '../../app/constants/app.constants'
+import { TOKEN } from '../constants/app.constants'
 
 export const AxiosBase = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,

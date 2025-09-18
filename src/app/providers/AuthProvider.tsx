@@ -7,9 +7,9 @@ import React, {
 } from "react";
 import { decode, encode } from "js-base64";
 import { AxiosError } from "axios";
-import type { LoginPayload } from "../model/auth";
+import type { LoginPayload } from "../../shared/model/auth";
 import { useLogin } from "../../shared/api/auth/repository";
-import { PASSWORD_KEY, TOKEN, USERNAME_KEY } from "../constants/app.constants";
+import { PASSWORD_KEY, TOKEN, USERNAME_KEY } from "../../shared/constants/app.constants";
 
 type AuthContextType = {
   isAuthenticated: boolean;

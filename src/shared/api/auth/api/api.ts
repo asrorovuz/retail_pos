@@ -1,20 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
 import { AxiosBase } from "../../axios";
-import type { LoginPayload, LoginResponse, StatusResponse } from "../../../../app/model/auth";
+import type { LoginPayload, LoginResponse, StatusResponse } from "../../../model/auth";
+import { pathServices } from "../../path";
 
 export const fetchAuthStatus = async (): Promise<StatusResponse> => {
-  const { data } = await AxiosBase.get("/public/auth/status");
+  const { data } = await AxiosBase.get(pathServices.auth.auth);
   return data;
 };
 
-export const useAuthStatus = () => {
-  return useQuery({
-    queryKey: ["auth-status"],
-    queryFn: fetchAuthStatus,
-  });
-};
-
 export const login = async (payload: LoginPayload): Promise<LoginResponse> => {
-  const { data } = await AxiosBase.post("/public/auth/login", payload);
+  const { data } = await AxiosBase.post(pathServices.auth.login, payload);
   return data;
 };

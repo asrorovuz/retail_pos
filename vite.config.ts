@@ -1,16 +1,17 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
+import path from 'path'
 
-// ❌ path kerak emas
+
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
-    port: 3000, // shu yerda portni berasan
+    port: 3000, 
   },
   resolve: {
     alias: {
-      '@': new URL('./src', import.meta.url).pathname,
+      '@': path.resolve(__dirname, 'src'),
     },
   },
 })

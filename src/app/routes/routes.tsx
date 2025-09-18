@@ -1,10 +1,14 @@
-import { createBrowserRouter, Navigate } from "react-router"
-import { AuthLayout } from "../layout/AuthLayout"
-import { AppLayout } from "../layout/MainLayout"
-import RegisterPage from "../../features/auth/ui/RegisterPage"
-import SalesPage from "../../pages/sales/SalesPage"
-import LoginPage from "../../pages/auth/LoginPage"
-import { PrivateRoute, PublicRoute } from "./ProtectedRoute"
+import { createBrowserRouter, Navigate } from "react-router";
+import { PrivateRoute, PublicRoute } from "./ProtectedRoute";
+import {
+  AppLayout,
+  AuthLayout,
+  LoginPage,
+  RegisterPage,
+  SalesPage,
+  SettingsPage,
+} from "./importFile";
+import { InitProvider } from "../providers";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -26,9 +30,16 @@ export const router = createBrowserRouter([
     element: <PrivateRoute />, // faqat login bo‘lganda
     children: [
       {
-        element: <AppLayout />,
-        children: [{ path: "/sales", element: <SalesPage /> }],
+        element: (
+          <InitProvider>
+            <AppLayout />
+          </InitProvider>
+        ),
+        children: [
+          { path: "/sales", element: <SalesPage /> },
+          { path: "/settings", element: <SettingsPage /> },
+        ],
       },
     ],
   },
-])
+]);

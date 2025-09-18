@@ -1,6 +1,6 @@
 import { Button } from "antd"
 import { GoSignOut } from "react-icons/go";
-import MenuFooter from "../../../shared/ui/menu/Menu";
+import MenuFooter from "./menu/Menu";
 
 const Footer = () => {
   return (
